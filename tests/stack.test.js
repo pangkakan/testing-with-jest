@@ -26,6 +26,6 @@ test('pop removes the element so the previous element becomes top', () => {
 
     const removed = stack.pop();
 
-    expect(removed).toBe('första');
-    expect(stack.peek()).toBe('andra');
+    expect(removed).toBe('andra');
+    expect(stack.peek()).toBe('första');
 });

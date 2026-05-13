@@ -50,5 +50,5 @@ test('After pushing two items, the latest item should be shown on top', async ()
     await alert2.accept();
 
     let topOfStack = await driver.findElement(By.id('top_of_stack')).getText();
-    expect(topOfStack).toEqual('Äpple');
+    expect(topOfStack).toEqual('Banan');
 });
