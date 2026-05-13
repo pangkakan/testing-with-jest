@@ -34,3 +34,21 @@ describe('Clicking Pusha till stacken', () => {
         await alert.accept();
     });
 });
+
+test('After pushing two items, the latest item should be shown on top', async () => {
+
+    let push = await driver.findElement(By.id('push'));
+
+    await push.click();
+    let alert1 = await driver.switchTo().alert();
+    await alert1.sendKeys('Äpple');
+    await alert1.accept();
+
+    await push.click();
+    let alert2 = await driver.switchTo().alert();
+    await alert2.sendKeys('Banan');
+    await alert2.accept();
+
+    let topOfStack = await driver.findElement(By.id('top_of_stack')).getText();
+    expect(topOfStack).toEqual('Äpple');
+});
