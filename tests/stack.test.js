@@ -16,3 +16,16 @@ test('peek on stack with two or more elements returns the top element', () => {
     expect(stack.peek()).toBeDefined();
     expect(stack.peek()).toBe(42);
 });
+test('pop removes the element so the previous element becomes top', () => {
+    while (stack.peek() !== undefined) {
+        stack.pop();
+    }
+
+    stack.push('första');
+    stack.push('andra');
+
+    const removed = stack.pop();
+
+    expect(removed).toBe('första');
+    expect(stack.peek()).toBe('andra');
+});
